@@ -10,19 +10,49 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const questions = [{
     /* Pass your questions in here */
     type: 'input',
-    name: 'yourName',
-    message: 'What is your name?',
+    name: 'Title',
+    message: 'What is the title of your project?',
 },
 {
     type: 'input',
-    name: 'languagesKnown',
-    message: 'What languages do you know?',
+    name: 'Description',
+    message: 'Enter a description of your project',
 },
 {
     type: 'input',
-    name: 'preferredCommunication',
-    message: 'What is your preferred method of communication?',
-}
+    name: 'Table of Contents',
+    message: 'Table of Contents',
+},
+{
+    type: 'input',
+    name: 'Installation',
+    message: 'Installation instructions',
+},
+{
+    type: 'input',
+    name: 'Usage',
+    message: 'Usage instructions',
+},
+{
+    type: 'choices',
+    name: 'License',
+    message: 'MIT License, Apache License 2.0, Mozilla Public License 2.0',
+},
+{
+    type: 'input',
+    name: 'Contributors',
+    message: 'Contributors',
+},
+{
+    type: 'input',
+    name: 'Testing',
+    message: 'Testing',
+},
+{
+    type: 'input',
+    name: 'Questions',
+    message: 'Testing',
+},
 ];
 
 // function to write README file
@@ -33,8 +63,8 @@ function writeToFile(fileName, data) {
 function init() {
 // inquirer.prompt(
     // pass questions
-)
-}
+
+};
 
 // function call to initialize program
 init();
