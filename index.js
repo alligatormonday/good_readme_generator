@@ -34,7 +34,7 @@ const questions = [{
     message: 'Usage instructions',
 },
 {
-    type: 'choices',
+    type: 'list',
     name: 'License',
     message: 'MIT License, Apache License 2.0, Mozilla Public License 2.0',
 },
@@ -50,8 +50,13 @@ const questions = [{
 },
 {
     type: 'input',
-    name: 'Questions',
-    message: 'Testing',
+    name: 'Email',
+    message: 'What is your email?',
+},
+{
+    type: 'input',
+    name: 'GitHub',
+    message: 'What is your GitHub username?',
 },
 ];
 
