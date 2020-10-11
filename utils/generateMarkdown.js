@@ -12,26 +12,36 @@ function projectAuthor(author) {
   return generate 
 }
 
-function projectDescription(description) {
-  let descripString = description;
-  let render = `## Description \n ${descripString} \n`;
+function projectContents() {
+  let render = `
+  ## Table of Contents: \n
+  * [Description](#Description) \n
+  * [Installation](#Installation) \n
+  * [Usage](#Usage) \n
+  * [Contributors](#Contributors) \n
+  * [Testing](#Testing) \n
+  * [Contact](#Contact) \n
+  `;
   return render 
 }
 
-function projectContents() {
-  let render = `## Table of Contents \n `;
+
+function projectDescription(description) {
+  let descripString = description;
+  let render = `## Description: \n ${descripString} \n`;
   return render 
 }
+
 
 function projectInstallation(installation) {
   let installString = installation;
-  let render = `## Installation Instructions: \n ${installString} \n`;
+  let render = `## Installation: \n ${installString} \n`;
   return render 
 }
 
 function projectUsage(usage) {
   let usageString = usage;
-  let render = `## Usage Instructions: \n ${usageString} \n`;
+  let render = `## Usage: \n ${usageString} \n`;
   return render 
 }
 
@@ -50,13 +60,18 @@ function projectTesting(testing) {
 function projectContact(email, git) {
   let emailString = email;
   let gitString = git;
-  let render = `## Contact: \n ${emailString} \n ${gitString}`;
+  let render = `
+  ## Contact: \n 
+  * Email: ${emailString} \n 
+  * GitHub Username: ${gitString} \n
+  `;
   return render 
 }
 
 module.exports = {
   projectTitle: projectTitle,
   projectAuthor: projectAuthor,
+  projectContents: projectContents,
   projectDescription: projectDescription,
   projectInstallation: projectInstallation,
   projectUsage: projectUsage,
