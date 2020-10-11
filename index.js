@@ -79,7 +79,7 @@ function writeToFile(fileName, data) {
     toWrite.push(generateMarkdown.projectContact(data.Email, data.GitHub));
 
     toWrite.forEach((item) => {
-        fs.appendFile(fileName, item, (err) => {
+        fs.appendFileSync(fileName, item, (err) => {
             if (err) throw err;
             // console.log('The "data to append" was appended to file!');
         });

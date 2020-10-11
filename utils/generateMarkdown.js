@@ -25,13 +25,11 @@ function projectContents() {
   return render 
 }
 
-
 function projectDescription(description) {
   let descripString = description;
   let render = `## Description: \n ${descripString} \n`;
   return render 
 }
-
 
 function projectInstallation(installation) {
   let installString = installation;

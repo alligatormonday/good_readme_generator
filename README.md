@@ -13,24 +13,8 @@ License
 Contributing
 Tests
 Questions -->
-
- 
-
- # Project Title: README.md GENERATOR 
-## Description: 
- Did some stuff to make stuff do stuff by making stuff do stuff.  
-## Contributors: 
- no 
-## Author: Joseph Jepson 
-
-  ## Contact: 
- 
-  * Email: joey@joeyjepson.com 
- 
-  * GitHub Username: alligatormonday 
-
-  ## Usage: 
- run more stuff 
+# Project Title: Andrew Yang Campaign Simulator 
+## Author: Me 
 
   ## Table of Contents: 
 
@@ -46,7 +30,21 @@ Questions -->
 
   * [Contact](#Contact) 
 
-  ## Testing: 
- no 
+  ## Description: 
+ Andrew Yang wins the presidency 
 ## Installation: 
- run some stuff 
+ run  
+## Usage: 
+ run 
+## Contributors: 
+ no 
+## Testing: 
+ no 
+
+  ## Contact: 
+ 
+  * Email: no 
+ 
+  * GitHub Username: no 
+
+  
