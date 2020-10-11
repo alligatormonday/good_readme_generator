@@ -8,7 +8,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 // array of questions for user
 const questions = [
     {
-        /* Pass your questions in here */
+        /* Pass user questions in here */
         type: "input",
         name: "Title",
         message: "What is the title of your project?",
@@ -69,7 +69,8 @@ const questions = [
 function writeToFile(fileName, data) {
     const toWrite = [];
     toWrite.push(generateMarkdown.projectTitle(data.Title));
-    toWrite.push(generateMarkdown.projectAuthor(data.Author))
+    toWrite.push(generateMarkdown.projectBadge(data.License));
+    toWrite.push(generateMarkdown.projectAuthor(data.Author));
     toWrite.push(generateMarkdown.projectContents());
     toWrite.push(generateMarkdown.projectDescription(data.Description));
     toWrite.push(generateMarkdown.projectInstallation(data.Installation));

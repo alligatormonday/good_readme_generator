@@ -6,6 +6,18 @@ function projectTitle(title) {
   return generate
 }
 
+function projectBadge(badge) {
+  if (badge === "MIT License") {
+    return `![License](https://img.shields.io/badge/License-MIT-yellow) \n`;
+  }
+  if (badge === "Apache License 2.0") {
+    return `![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen) \n`;
+  }
+  if (badge === "Mozilla Public License 2.0") {
+    return `![License](https://img.shields.io/badge/License-MPL_2.0-blue) \n`
+  }
+}
+
 function projectAuthor(author) {
   let authorString = author;
   let generate = `## Author: ${authorString} \n`;
@@ -68,13 +80,12 @@ function projectContact(email, git) {
 }
 
 function projectLicense(license) {
-  // let licenseString = license;
-  // let render = `## License: ${licenseString} \n
   if (license === "MIT License") {
     return `## License: \n 
+    
     MIT License
 
-  Copyright (c) ${new Date().getFullYear()} [fullname]
+  Copyright (c) ${new Date().getFullYear()} [Full Name]
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -97,6 +108,7 @@ function projectLicense(license) {
 
   if (license === "Apache License 2.0") {
     return `## License: \n
+
     Apache License 
   Version 2.0, January 2004
 http://www.apache.org/licenses/
@@ -299,8 +311,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.`
   }
+
   if (license === "Mozilla Public License 2.0") {
     return `## License: \n
+    
     Mozilla Public License Version 2.0
 ==================================
 
@@ -679,6 +693,7 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 
 module.exports = {
   projectTitle: projectTitle,
+  projectBadge: projectBadge,
   projectAuthor: projectAuthor,
   projectContents: projectContents,
   projectDescription: projectDescription,
@@ -689,28 +704,3 @@ module.exports = {
   projectContact: projectContact,
   projectLicense: projectLicense,
 }
-
-
-// function projectContents(contents) {
-//   let contentString = contents;
-//   let render = `## ${contentString} \n`;
-//   return render 
-// }
-
-
-
-// function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `
-//   # ${data.title}
-
-//   ![License](https://img.shields.io/badge/License-${data.license}-lightgrey.svg)
-
-//   ## Table of Contents
-
-//   \n* [Description](#description)
-
-// `;
-// }
-
-// module.exports = generateMarkdown;
