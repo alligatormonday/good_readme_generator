@@ -1,82 +1,94 @@
-// Constants to pass packages through 
+// Constants to pass packages through
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
 const util = require("util");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
-const questions = [{
-    /* Pass your questions in here */
-    type: 'input',
-    name: 'Title',
-    message: 'What is the title of your project?',
-},
-{
-    type: 'input',
-    name: 'Author',
-    message: 'What is your name?',
-},
-{
-    type: 'input',
-    name: 'Description',
-    message: 'Enter a description of your project',
-},
-{
-    type: 'input',
-    name: 'Table of Contents',
-    message: 'Table of Contents',
-},
-{
-    type: 'input',
-    name: 'Installation',
-    message: 'Installation instructions',
-},
-{
-    type: 'input',
-    name: 'Usage',
-    message: 'Usage instructions',
-},
-{
-    type: 'input',
-    name: 'Contributors',
-    message: 'Contributors',
-},
-{
-    type: 'input',
-    name: 'Testing',
-    message: 'Testing',
-},
-{
-    type: 'input',
-    name: 'Email',
-    message: 'What is your email?',
-},
-{
-    type: 'input',
-    name: 'GitHub',
-    message: 'What is your GitHub username?',
-},
-{
-    type: 'list',
-    name: 'License',
-    message: 'License',
-    choices: ['MIT License', 'Apache License 2.0', 'Mozilla Public License 2.0'],
-},
+const questions = [
+    {
+        /* Pass your questions in here */
+        type: "input",
+        name: "Title",
+        message: "What is the title of your project?",
+    },
+    {
+        type: "input",
+        name: "Author",
+        message: "Who is the author of this readme/project?",
+    },
+    {
+        type: "input",
+        name: "Description",
+        message: "Enter a description of your project",
+    },
+    {
+        type: "input",
+        name: "Installation",
+        message: "Installation instructions",
+    },
+    {
+        type: "input",
+        name: "Usage",
+        message: "Usage instructions",
+    },
+    {
+        type: "input",
+        name: "Contributors",
+        message: "Contributors",
+    },
+    {
+        type: "input",
+        name: "Testing",
+        message: "Testing",
+    },
+    {
+        type: "input",
+        name: "Email",
+        message: "What is your email?",
+    },
+    {
+        type: "input",
+        name: "GitHub",
+        message: "What is your GitHub username?",
+    },
+    {
+        type: "list",
+        name: "License",
+        message: "License",
+        choices: [
+            "MIT License",
+            "Apache License 2.0",
+            "Mozilla Public License 2.0",
+        ],
+    },
 ];
-
-inquirer.prompt(questions)
 
 // function to write README file
 function writeToFile(fileName, data) {
+    const toWrite = [];
+    toWrite.push(generateMarkdown.projectTitle(data.Title));
+    toWrite.push(generateMarkdown.projectDescription(data.Description));
+    toWrite.forEach((item) => {
+        fs.appendFile(fileName, item, (err) => {
+            if (err) throw err;
+            // console.log('The "data to append" was appended to file!');
+        });
+    });
 }
 
 // function to initialize program
 function init() {
-// inquirer.prompt(
-    // pass questions
-
-};
+    // inquirer.prompt(
+    inquirer
+        // pass questions
+        .prompt(questions)
+        // take in answers and write them to the readme file
+        .then((answers) => {
+            writeToFile("readme.md", answers);
+        });
+}
 
 // function call to initialize program
 init();
