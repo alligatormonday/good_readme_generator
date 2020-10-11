@@ -1,10 +1,9 @@
-// Constants
+// Constants to pass packages through 
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
-
 
 // array of questions for user
 const questions = [{
@@ -12,6 +11,11 @@ const questions = [{
     type: 'input',
     name: 'Title',
     message: 'What is the title of your project?',
+},
+{
+    type: 'input',
+    name: 'Author',
+    message: 'What is your name?',
 },
 {
     type: 'input',
@@ -34,12 +38,6 @@ const questions = [{
     message: 'Usage instructions',
 },
 {
-    type: 'list',
-    name: 'License',
-    message: 'License',
-    choices: 'MIT License, Apache License 2.0, Mozilla Public License 2.0',
-},
-{
     type: 'input',
     name: 'Contributors',
     message: 'Contributors',
@@ -59,7 +57,15 @@ const questions = [{
     name: 'GitHub',
     message: 'What is your GitHub username?',
 },
+{
+    type: 'list',
+    name: 'License',
+    message: 'License',
+    choices: ['MIT License', 'Apache License 2.0', 'Mozilla Public License 2.0'],
+},
 ];
+
+inquirer.prompt(questions)
 
 // function to write README file
 function writeToFile(fileName, data) {
