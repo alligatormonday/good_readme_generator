@@ -69,7 +69,14 @@ const questions = [
 function writeToFile(fileName, data) {
     const toWrite = [];
     toWrite.push(generateMarkdown.projectTitle(data.Title));
+    toWrite.push(generateMarkdown.projectAuthor(data.Author))
     toWrite.push(generateMarkdown.projectDescription(data.Description));
+    toWrite.push(generateMarkdown.projectInstallation(data.Installation));
+    toWrite.push(generateMarkdown.projectUsage(data.Usage));
+    toWrite.push(generateMarkdown.projectContributors(data.Contributors));
+    toWrite.push(generateMarkdown.projectTesting(data.Testing));
+    toWrite.push(generateMarkdown.projectContact(data.email, data.GitHub));
+
     toWrite.forEach((item) => {
         fs.appendFile(fileName, item, (err) => {
             if (err) throw err;
