@@ -1,5 +1,3 @@
-// const fs = require("fs")
-
 function projectTitle(title) {
   let generate = `# 💡 Project Title: ${title} \n`;
   return generate
@@ -62,12 +60,10 @@ function projectTesting(testing) {
 }
 
 function projectContact(email, git) {
-  let emailString = email;
-  let gitString = git;
   let render = `
   ## Contact: \n 
-  * 💌 Email: ${emailString} \n 
-  * 👤 GitHub Username: [${gitString}](https://github.com/${gitString}) \n
+  * 💌  Email: ${email} \n 
+  * 👤  GitHub Username: [${git}](https://github.com/${git}) \n
   `;
   return render
 }
