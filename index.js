@@ -1,9 +1,9 @@
 // Constants to pass packages through
 const fs = require("fs");
 const inquirer = require("inquirer");
-const util = require("util");
+// const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown.js");
-const writeFileAsync = util.promisify(fs.writeFile);
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
 const questions = [
@@ -11,52 +11,52 @@ const questions = [
         /* Pass user questions in here */
         type: "input",
         name: "Title",
-        message: "What is the title of your project?",
+        message: "💡 What is the title of your project?",
     },
     {
         type: "input",
         name: "Author",
-        message: "Who is the author of this readme/project?",
+        message: "👤 Who is the author of this readme/project?",
     },
     {
         type: "input",
         name: "Description",
-        message: "Enter a description of your project",
+        message: "📃 Enter a description of your project",
     },
     {
         type: "input",
         name: "Installation",
-        message: "Installation instructions",
+        message: "📦 Enter installation instructions",
     },
     {
         type: "input",
         name: "Usage",
-        message: "Usage instructions",
+        message: "🚀 Enter usage instructions",
     },
     {
         type: "input",
         name: "Contributors",
-        message: "Contributors",
+        message: "🛠  How would like others to contribute?",
     },
     {
         type: "input",
         name: "Testing",
-        message: "Testing",
+        message: "✅ Enter commands to test",
     },
     {
         type: "input",
         name: "Email",
-        message: "What is your email?",
+        message: "💌 What is your email?",
     },
     {
         type: "input",
         name: "GitHub",
-        message: "What is your GitHub username?",
+        message: "👤 What is your GitHub username?",
     },
     {
         type: "list",
         name: "License",
-        message: "License",
+        message: "📝 License",
         choices: [
             "MIT License",
             "Apache License 2.0",
