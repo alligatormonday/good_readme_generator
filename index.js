@@ -78,7 +78,7 @@ function writeToFile(fileName, data) {
     toWrite.push(generateMarkdown.projectContributors(data.Contributors));
     toWrite.push(generateMarkdown.projectTesting(data.Testing));
     toWrite.push(generateMarkdown.projectContact(data.Email, data.GitHub));
-    toWrite.push(generateMarkdown.projectLicense(data.License));
+    toWrite.push(generateMarkdown.projectLicense(data.License, data.Author));
 
     toWrite.forEach((item) => {
         fs.appendFileSync(fileName, item, (err) => {
